@@ -12,10 +12,23 @@ In CVPR 2022.<br>
 
 <img src="https://raw.githubusercontent.com/williamyang1991/williamyang1991.github.io/master/images/project/CVPR2022.jpg" width="96%" height="96%">
 
-It is provided for educational/research purpose only. Please consider citing our paper if you find the software useful for your work.
-
 ## Updates
 
 - [03/2022] This website is created.
 
-## We are cleaning our code. Coming soon. 
+## Code
+
+- We are cleaning our code. Coming soon. 
+
+## Citation
+
+If you find this work useful for your research, please consider citing our paper:
+
+```
+@inproceedings{yang2022Unsupervised,
+  title={Unsupervised Image-to-Image Translation with Generative Prior},
+  author={Yang, Shuai and Jiang, Liming and Liu, Ziwei and Loy, Chen Change},
+  booktitle={CVPR},
+  year={2022}
+}
+```
