@@ -20,6 +20,26 @@ In CVPR 2022.<br>
 
 - We are cleaning our code. Coming soon. 
 
+## Results
+
+#### Case 1: Male-to-Female (close domains)  
+
+> the bottom row futher changes identity and expression
+> 
+![male2female](./doc_images/4.gif)
+
+#### Case 2: Dog-to-Cat/WildCat (related domains)  
+
+![cat2dog](./doc_images/3.gif)
+
+#### Case 3: Cat-to-Dog (related domains) and Dog-to-Human (distant domains)  
+
+![dog2human](./doc_images/2.gif)
+
+#### Case 4: Bird-to-Dog (distant domains) and Bird-to-Car (extremely distant domains)  
+
+![bird2car](./doc_images/1.gif)
+
 ## Citation
 
 If you find this work useful for your research, please consider citing our paper:
