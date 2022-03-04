@@ -11,10 +11,10 @@ accepted by IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2
 
 <table border="0" width='100%'>
  <tr align="center">
-  <td width="100%"><img src="https://raw.githubusercontent.com/williamyang1991/williamyang1991.github.io/master/images/project/CVPR2022.jpg" width="96%" height="96%"></td>
+  <td width="100%"><img src="https://raw.githubusercontent.com/williamyang1991/williamyang1991.github.io/master/images/project/CVPR2022.jpg" width="100%" height="100%"></td>
  </tr>
- <tr align="center">
-  <td>We propose a versatile unsupervised image translation framework with generative prior that supports various translations from close domains to distant domains with drastic shape and appearance discrepancies.</td>
+ <tr align="left">
+  <td>In this paper, we propose a versatile unsupervised image translation framework with generative prior that supports various translations from close domains to distant domains with drastic shape and appearance discrepancies.</td>
 </tr>					 
 </table>
 
