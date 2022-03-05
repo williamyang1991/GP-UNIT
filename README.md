@@ -26,17 +26,17 @@ In CVPR 2022.<br>
 
 ![male2female](./doc_images/5.gif)
 
-#### Case 2: Dog-to-Cat: related domains 
+#### Dog-to-Cat: related domains 
 
 ![cat2dog](./doc_images/3.gif)
 
-#### Case 3: Dog-to-Human and Bird-to-Dog: distant domains  
+#### Dog-to-Human and Bird-to-Dog: distant domains  
 
 ![dog2human](./doc_images/4.gif)
 
 ![bird2dog](./doc_images/2.gif)
 
-#### Case 4: Bird-to-Car: extremely distant domains for stress testing
+#### Bird-to-Car: extremely distant domains for stress testing
 
 ![bird2car](./doc_images/1.gif)
 
