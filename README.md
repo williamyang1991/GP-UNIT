@@ -44,7 +44,7 @@ In CVPR 2022.<br>
 
 If you find this work useful for your research, please consider citing our paper:
 
-```
+```bibtex
 @inproceedings{yang2022Unsupervised,
   title={Unsupervised Image-to-Image Translation with Generative Prior},
   author={Yang, Shuai and Jiang, Liming and Liu, Ziwei and Loy, Chen Change},
