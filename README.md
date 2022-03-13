@@ -52,3 +52,7 @@ If you find this work useful for your research, please consider citing our paper
   year={2022}
 }
 ```
+
+## Acknowledgments
+
+The code is developed based on [StarGAN v2](https://github.com/clovaai/stargan-v2) and [Imaginaire](https://github.com/nvlabs/imaginaire).
