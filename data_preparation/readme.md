@@ -75,8 +75,8 @@ eliminate outliers, with 600 images for training and 50 images for testing.
 
 **Download**
 
-For instance segmentation maps of the images in ImageNet291, they can be downloaded from 
-[Google Drive](https://drive.google.com/file/d/1iAGsFmkFAYxfwo4tXkctCKikCUjmBn85/view?usp=sharing) or [Baidu Cloud]() (access code: cvpr).
+For [instance segmentation maps](https://drive.google.com/file/d/1iAGsFmkFAYxfwo4tXkctCKikCUjmBn85/view?usp=sharing) of the images in ImageNet291, they can be downloaded from 
+[Google Drive](https://drive.google.com/drive/folders/1LPbUqpOM4oADnhRqWteTRiVrYo_U01zx?usp=sharing) or [Baidu Cloud]() (access code: cvpr).
 The link also provides the instance segmentation maps of the face images in CelebHA in the `ImageNet291_mask\train\1001_face\` and `ImageNet291_mask\test\1001_face\`
 
 For the images of ImageNet291, we provide the script to build ImageNet291 from the original ImageNet train set.
