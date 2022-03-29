@@ -23,7 +23,7 @@ After filtering low quality ones, we finally obtain 655 images per domain that a
 **Download**
 
 synImageNet291 can be downloaded from 
-[Google Drive](https://drive.google.com/file/d/1amMu_IU_W0ELGq7x2ixAMk5ZJlBUNCqL/view?usp=sharing) or [Baidu Cloud]() (access code: cvpr)
+[Google Drive](https://drive.google.com/file/d/1amMu_IU_W0ELGq7x2ixAMk5ZJlBUNCqL/view?usp=sharing) or [Baidu Cloud](https://pan.baidu.com/s/1Nameanuztw8VXTd2QP9GSw?pwd=cvpr) (access code: cvpr)
 
 **Content**
 
@@ -76,7 +76,7 @@ eliminate outliers, with 600 images for training and 50 images for testing.
 **Download**
 
 For [instance segmentation maps](https://drive.google.com/file/d/1iAGsFmkFAYxfwo4tXkctCKikCUjmBn85/view?usp=sharing) of the images in ImageNet291, they can be downloaded from 
-[Google Drive](https://drive.google.com/drive/folders/1LPbUqpOM4oADnhRqWteTRiVrYo_U01zx?usp=sharing) or [Baidu Cloud]() (access code: cvpr).
+[Google Drive](https://drive.google.com/drive/folders/1LPbUqpOM4oADnhRqWteTRiVrYo_U01zx?usp=sharing) or [Baidu Cloud](https://pan.baidu.com/s/1Nameanuztw8VXTd2QP9GSw?pwd=cvpr) (access code: cvpr).
 The link also provides the instance segmentation maps of the face images in CelebHA in the `ImageNet291_mask\train\1001_face\` and `ImageNet291_mask\test\1001_face\`
 
 For the images of ImageNet291, we provide the script to build ImageNet291 from the original ImageNet train set.
