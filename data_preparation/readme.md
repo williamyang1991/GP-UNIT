@@ -17,8 +17,8 @@ to generate correlated images associated by random latent codes for each of the 
 including dogs, wild animals, birds and vehicles. 
 Their class indexes in the original ImageNet 1000 classes are 7∼20, 22, 23, 80∼102, 104, 105, 106, 127, 128, 129, 131∼145, 151∼299, 330∼378, 
 380, 382∼388, 407, 436, 468, 511, 555, 586, 609, 627, 654, 656, 675, 717,734, 751, 757, 779, 803, 817, 829, 847, 856, 864, 866, 867, 874. 
-We apply truncation trick to the latent codes, and obtain 3K images with truncation threshold of 0.5 and 3K images with truncation threshold of 1.0. 
-After filtering low quality ones, we finally obtain 655 images per domain that are linked across all domains, 600 of which are for training. 
+We apply truncation trick to the latent codes, and obtain 3K images with a truncation threshold of 0.5 and 3K images with a truncation threshold of 1.0. 
+After filtering low quality ones, we finally obtain 655 images per domain that are linked across all domains, 600 of which are used for training. 
 
 **Download**
 
@@ -69,7 +69,7 @@ The details of the dataset generation:
 
 > For each domain X, we first calculate the mean style feature S_X of the images in X from **synImageNet291**. 
 The style feature is defined as the channel-wise mean of the conv5_2 feature of pre-trained VGG. Then, we apply
-HTC to ImageNet to detect and crop the object regions in the domain X. Small objects are filtered. The remaining
+HTC to detect and crop the object regions in the domain X of ImageNet. Small objects are filtered. The remaining
 images are ranked based on the similarity between their style features and S_X . We finally select the top 800 images to
 eliminate outliers, with 600 images for training and 50 images for testing.
 
@@ -79,16 +79,16 @@ For [instance segmentation maps](https://drive.google.com/file/d/1iAGsFmkFAYxfwo
 [Google Drive](https://drive.google.com/drive/folders/1LPbUqpOM4oADnhRqWteTRiVrYo_U01zx?usp=sharing) or [Baidu Cloud](https://pan.baidu.com/s/1Nameanuztw8VXTd2QP9GSw?pwd=cvpr) (access code: cvpr).
 The link also provides the instance segmentation maps of the face images in CelebHA in the `ImageNet291_mask\train\1001_face\` and `ImageNet291_mask\test\1001_face\`
 
-For the images of ImageNet291, we provide the script to build ImageNet291 from the original ImageNet train set.
+For the images of ImageNet291, we provide the script to build ImageNet291 from the original ImageNet training set.
 
 * Download the original [ImageNet](https://image-net.org/download.php) dataset 
-* Download the [ImageNet_To_ImageNet291.txt](https://drive.google.com/file/d/10nvdJigeKn5mA5rsPdWLu9g8uKJe0d_p/view?usp=sharing), a text file containing the filenames of the filtered train set. 
+* Download the [ImageNet_To_ImageNet291.txt](https://drive.google.com/file/d/10nvdJigeKn5mA5rsPdWLu9g8uKJe0d_p/view?usp=sharing), a text file containing the filenames of the filtered training set. 
 * Download the [bbox_select_txt.zip](https://drive.google.com/file/d/1PvOaLwm8-mjpCJPesPRyIA4U4SgQkvr5/view?usp=sharing), unzip it to obtain the bounding boxes of the images. 
 * Specify the folder path to the training set of ImageNet in [Line 8 of generate_ImageNet291.py](./generate_ImageNet291.py#L8).
    * The folder is expected to contain 1000 subfolders of `n01440764`, `n01443537`, ...
 * Specify the folder path to [bbox_select_txt](https://drive.google.com/file/d/1PvOaLwm8-mjpCJPesPRyIA4U4SgQkvr5/view?usp=sharing) in [Line 9 of generate_ImageNet291.py](./generate_ImageNet291.py#L9).
 * Specify the folder path to save the images of ImageNet291 in [Line 10 of generate_ImageNet291.py](./generate_ImageNet291.py#L10).
-* Specify the file path to [ImageNet_To_ImageNet291.txt](https://drive.google.com/file/d/10nvdJigeKn5mA5rsPdWLu9g8uKJe0d_p/view?usp=sharing) in [Line 11 of generate_ImageNet291.py](./generate_ImageNet291.py#L11).
+* Specify the file path to [ImageNet_To_ImageNet291.txt](https://drive.google.com/file/d/10nvdJigeKn5mA5rsPdWLu9g8uKJe0d_p/view?usp=sharing) in [Line 11 of generate_ImageNet291.py](./generate_ImageNet291.py#L11). Run:
 
 ```python
 python generate_ImageNet291.py
@@ -96,4 +96,4 @@ python generate_ImageNet291.py
 
 **Content**
 
-The folder structures of ImageNet291 is the same as those of synImageNet291
+The folder structure of ImageNet291 is the same as that of synImageNet291.
