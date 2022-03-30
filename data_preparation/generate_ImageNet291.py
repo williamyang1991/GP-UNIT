@@ -1,6 +1,5 @@
 import os
 import sys
-import cv2
 import numpy as np
 from PIL import Image
 from tqdm import tqdm
@@ -17,7 +16,7 @@ if __name__ == "__main__":
     mappings = f.readlines()
     f.close()
     progress = 0
-    for line in mappings:
+    for line in tqdm(mappings):
         if '.jpg' not in line:
             progress += 1
             print('%03d/291'%(progress))
@@ -61,7 +60,6 @@ if __name__ == "__main__":
         subimg = img[y_:min(y_ + Ry, H), x_:min(x_ + Rx, W), :]
         try:
             subimgpil = Image.fromarray(subimg)
-            # subimg = cv2.resize(subimg, (256, 256), interpolation=cv2.INTER_LINEAR)
         except:
             continue
         subimgpil = subimgpil.resize((256, 256), Image.BILINEAR)
