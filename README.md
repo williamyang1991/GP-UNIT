@@ -26,7 +26,7 @@ In CVPR 2022.<br>
 
 ![male2female](./doc_images/5.gif)
 
-#### Dog-to-Cat: related domains 
+#### Cat-to-Dog: related domains 
 
 ![cat2dog](./doc_images/3.gif)
 
