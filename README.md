@@ -22,7 +22,7 @@ In CVPR 2022.<br>
 
 ## (1) Dataset Preparation
 
-## (2) Inference for Exemplar-Guided and Latent-Guided Translation
+## (2) Inference for Latent-Guided and Exemplar-Guided Translation
 
 ### Pretrained Models
 
@@ -47,13 +47,28 @@ checkpoint
 ...
 ```
 
+### Latent-Guided Translation
+Translate a content image to the target domain with randomly sampled latent styles:
+```python
+python inference.py --generator_path PRETRAINED_GENERATOR_PATH --content_encoder_path PRETRAINED_ENCODER_PATH \ 
+                    --content CONTENT_IMAGE_PATH --batch STYLE_NUMBER
+```
+By default, the script will use `.\checkpoint\dog2cat.pt` as PRETRAINED_GENERATOR_PATH and `.\checkpoint\content_encoder.pt` as PRETRAINED_ENCODER_PATH.
+
+Take Dog→Cat as an example, run:
+> python inference.py --content ./data/afhq/images512x512/test/dog/flickr_dog_000572.jpg --batch 6
+
+Six results `translation_flickr_dog_000572_N.jpg` (N=0~5) are saved in the folder `.\output\`.
+An corresponding overview image `translation_flickr_dog_000572_overview.jpg` is additionally saved to illustrate the input content image and the six results: 
+
+<img src="./output/translation_flickr_dog_000572_overview.jpg">
+
 ### Exemplar-Guided Translation
-Translate a content image to the target domain in the style of a style image:
+Translate a content image to the target domain in the style of a style image by additionally specifying `--style`:
 ```python
 python inference.py --generator_path PRETRAINED_GENERATOR_PATH --content_encoder_path PRETRAINED_ENCODER_PATH \ 
                     --content CONTENT_IMAGE_PATH --style STYLE_IMAGE_PATH
 ```
-By default, the script will use `.\checkpoint\dog2cat.pt` as PRETRAINED_GENERATOR_PATH and `.\checkpoint\content_encoder.pt` as PRETRAINED_ENCODER_PATH.
 
 Take Dog→Cat as an example, run:
 > python inference.py --content ./data/afhq/images512x512/test/dog/flickr_dog_000572.jpg --style ./data/afhq/images512x512/test/cat/flickr_cat_000418.jpg 
