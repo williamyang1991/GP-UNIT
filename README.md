@@ -47,6 +47,29 @@ checkpoint
 ...
 ```
 
+### Exemplar-Guided Translation
+Translate a content image to the target domain in the style of a style image:
+```python
+python inference.py --generator_path PRETRAINED_GENERATOR_PATH --content_encoder_path PRETRAINED_ENCODER_PATH \ 
+                    --content CONTENT_IMAGE_PATH --style STYLE_IMAGE_PATH
+```
+By default, the script will use `.\checkpoint\dog2cat.pt` as PRETRAINED_GENERATOR_PATH and `.\checkpoint\content_encoder.pt` as PRETRAINED_ENCODER_PATH.
+
+Take Dog→Cat as an example, run:
+> python inference.py --content ./data/afhq/images512x512/test/dog/flickr_dog_000572.jpg --style ./data/afhq/images512x512/test/cat/flickr_cat_000418.jpg 
+
+The result `translation_flickr_dog_000572_to_flickr_cat_000418.jpg` is saved in the folder `.\output\`.
+An corresponding overview image `translation_flickr_dog_000572_to_flickr_cat_000418_overview.jpg` is additionally saved to illustrate the input content image, the style image, and the result: 
+
+<img src="./output/translation_flickr_dog_000572_to_flickr_cat_000418_overview.jpg" width="60%">
+
+Another example of Cat→Wild, run:
+> python inference.py --generator_path ./checkpoint/cat2wild.pt --content ./data/afhq/images512x512/test/cat/flickr_cat_000418.jpg --style ./data/afhq/images512x512/test/wild/flickr_wild_001112.jpg
+
+The overview image is as follows: 
+
+<img src="./output/translation_flickr_cat_000418_to_flickr_wild_001112_overview.jpg" width="60%">
+
 ## Results
 
 #### Male-to-Female: close domains
