@@ -20,6 +20,33 @@ In CVPR 2022.<br>
 
 - We are cleaning our code. Coming soon. 
 
+## (1) Dataset Preparation
+
+## (2) Inference for Exemplar-Guided and Latent-Guided Translation
+
+### Pretrained Models
+
+Pretrained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1GMGCPt1xfh0Zs82lfkQLifMZR27yANTI?usp=sharing) or [Baidu Cloud](https://pan.baidu.com/s/1GlCnwd_0EDHNTsQrvM0xhA?pwd=cvpr) (access code: cvpr):
+
+| Task | Pretrained Models | 
+| :--- | :--- | 
+| Prior Distillation | [content encoder](https://drive.google.com/file/d/1I7_IMMheihcIR57vInof5g6R0j8wEonx/view?usp=sharing) |
+| Male↔Female | generators for [male2female](https://drive.google.com/file/d/1I0xqtbuuPOhcteHH613PGX7uO3fMTf9r/view?usp=sharing) and [female2male](https://drive.google.com/file/d/19xIY0vqHVpah4UyXKgz7trWi1TdlPD_T/view?usp=sharing) |
+| Dog↔Cat↔Wild| generators for [dog2cat](https://drive.google.com/file/d/1PJyk0hKClceTHRD6BORFVEpG-pl0lPFm/view?usp=sharing), [cat2dog](https://drive.google.com/file/d/1EvQRKY4AN1JxAElsOPkuqqSRZVCNL3gA/view?usp=sharing), [dog2wild](https://drive.google.com/file/d/11j0kG1EJoSLWX6AJ8kaIWp_QFAZoUdpI/view?usp=sharing), [wild2dog](https://drive.google.com/file/d/16lr7bce4qGEmUWlfKZuRatyX_OsKdNkg/view?usp=sharing), [cat2wild](https://drive.google.com/file/d/16sBFFxbc1zX2LfruMUuY7aVZekng032g/view?usp=sharing) and [wild2cat](https://drive.google.com/file/d/1LVNfpBdHPNog1_tk9rE5x_4oQUUV8uEy/view?usp=sharing) |
+| Face↔Cat or Dog| generators for [face2cat](https://drive.google.com/file/d/1CKKXDaD0h6i1RFtbcHOL8Bj3P37_Cheh/view?usp=sharing), [cat2face](https://drive.google.com/file/d/1cAYIYU6JUunBRhw94cssp8cPnuD7hJgo/view?usp=sharing), [dog2face](https://drive.google.com/file/d/1OPINn14b_rwKdEO1l_2ON__ngBLSllPq/view?usp=sharing) and [face2dog](https://drive.google.com/file/d/1_RrsNvaswMuLqrUr79q8HBx9TcP_zS9y/view?usp=sharing) |
+| Bird↔Dog | generators for [bird2dog](https://drive.google.com/file/d/1Nm0jAI6dxDLBUdIFPEx8qU002IUdBaTO/view?usp=sharing) and [dog2bird](https://drive.google.com/file/d/1Ud_IJTO8Ovi7T7lsMG3S9boYASemnVAB/view?usp=sharing) |
+| Bird↔Car | generators for [bird2car](https://drive.google.com/file/d/1PR_AF8JnYMaXH3hKipGxUZEjgrUu_0r5/view?usp=sharing) and [car2bird](https://drive.google.com/file/d/1j1N6vMNhPt4beLDrwP-uBd-jgPoQqg4O/view?usp=sharing) |
+| Face➡️MetFace | generator for [face2metface](https://drive.google.com/file/d/15IoEyUUY-1vnfqqVquVYMCleHVXt4jJs/view?usp=sharing) |
+
+The saved checkpoints are under the following folder structure:
+```
+checkpoint
+|--content_encoder.pt     % Content encoder
+|--bird2car.pt            % Bird-to-Car translation model
+|--bird2dog.pt            % Bird-to-Dog translation model
+...
+```
+
 ## Results
 
 #### Male-to-Female: close domains
