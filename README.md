@@ -51,9 +51,10 @@ checkpoint
 Translate a content image to the target domain with randomly sampled latent styles:
 ```python
 python inference.py --generator_path PRETRAINED_GENERATOR_PATH --content_encoder_path PRETRAINED_ENCODER_PATH \ 
-                    --content CONTENT_IMAGE_PATH --batch STYLE_NUMBER
+                    --content CONTENT_IMAGE_PATH --batch STYLE_NUMBER --device DEVICE
 ```
-By default, the script will use `.\checkpoint\dog2cat.pt` as PRETRAINED_GENERATOR_PATH and `.\checkpoint\content_encoder.pt` as PRETRAINED_ENCODER_PATH.
+By default, the script will use `.\checkpoint\dog2cat.pt` as PRETRAINED_GENERATOR_PATH, `.\checkpoint\content_encoder.pt` as PRETRAINED_ENCODER_PATH, and
+`cuda` as DEVICE for using GPU. For running on CPUs, use `--device cpu`.
 
 Take Dog→Cat as an example, run:
 > python inference.py --content ./data/afhq/images512x512/test/dog/flickr_dog_000572.jpg --batch 6
@@ -67,7 +68,7 @@ An corresponding overview image `translation_flickr_dog_000572_overview.jpg` is 
 Translate a content image to the target domain in the style of a style image by additionally specifying `--style`:
 ```python
 python inference.py --generator_path PRETRAINED_GENERATOR_PATH --content_encoder_path PRETRAINED_ENCODER_PATH \ 
-                    --content CONTENT_IMAGE_PATH --style STYLE_IMAGE_PATH
+                    --content CONTENT_IMAGE_PATH --style STYLE_IMAGE_PATH --device DEVICE
 ```
 
 Take Dog→Cat as an example, run:
