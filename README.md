@@ -27,11 +27,11 @@ Bird, dog and car dataset can be built from ImageNet with our provided script.
 
 | Task | Used Dataset | 
 | :--- | :--- | 
-| Male←→Female | [CelebA-HQ](https://github.com/clovaai/stargan-v2#datasets-and-pre-trained-networks): divided into male and female subsets by [StarGANv2](https://github.com/clovaai/stargan-v2#datasets-and-pre-trained-networks). |
+| Male←→Female | [CelebA-HQ](https://github.com/clovaai/stargan-v2#datasets-and-pre-trained-networks): divided into male and female subsets by [StarGANv2](https://github.com/clovaai/stargan-v2#datasets-and-pre-trained-networks) |
 | Dog←→Cat←→Wild| [AFHQ](https://github.com/clovaai/stargan-v2#datasets-and-pre-trained-networks) provided by [StarGANv2](https://github.com/clovaai/stargan-v2#datasets-and-pre-trained-networks) |
 | Face←→Cat or Dog| [CelebA-HQ](https://github.com/switchablenorms/CelebAMask-HQ) and [AFHQ](https://github.com/clovaai/stargan-v2#datasets-and-pre-trained-networks) |
-| Bird←→Dog | 4 classes of birds and 4 classes of dogs in ImageNet291. Please refer to [dataset preparation](./data_preparation#2-imagenet291) for building ImageNet291 from [ImageNet](https://image-net.org/download.php). |
-| Bird←→Car | 4 classes of birds and 4 classes of cars in ImageNet291. Please refer to [dataset preparation](./data_preparation#2-imagenet291) for building ImageNet291 from [ImageNet](https://image-net.org/download.php).|
+| Bird←→Dog | 4 classes of birds and 4 classes of dogs in ImageNet291. Please refer to [dataset preparation](./data_preparation#2-imagenet291) for building ImageNet291 from [ImageNet](https://image-net.org/download.php) |
+| Bird←→Car | 4 classes of birds and 4 classes of cars in ImageNet291. Please refer to [dataset preparation](./data_preparation#2-imagenet291) for building ImageNet291 from [ImageNet](https://image-net.org/download.php) |
 | Face→MetFace |  [CelebA-HQ](https://github.com/switchablenorms/CelebAMask-HQ) and [MetFaces](https://github.com/NVlabs/metfaces-dataset) |
 
 ## (2) Inference for Latent-Guided and Exemplar-Guided Translation
