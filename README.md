@@ -23,7 +23,7 @@ In CVPR 2022.<br>
 ## (1) Dataset Preparation
 
 Human face dataset, animal face dataset and aristic human face dataset can be downloaded from their official pages.
-Bird, dog and car dataset can be built from ImageNet with our provided script.
+Bird, dog and car datasets can be built from ImageNet with our provided [script](./data_preparation).
 
 | Task | Used Dataset | 
 | :--- | :--- | 
