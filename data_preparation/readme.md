@@ -92,7 +92,7 @@ For the images of ImageNet291, we provide the script to build ImageNet291 from t
 ```python
 python generate_ImageNet291.py
 ```
-* Download [CelebA-HQ](https://github.com/switchablenorms/CelebAMask-HQ) and put the 29000 training images and 1000 testing images to `./ImageNet291/train/1001_face/` and `./ImageNet291/test/1001_face/`, respectively.
+* Download [CelebA-HQ](https://github.com/switchablenorms/CelebAMask-HQ) and put the 29000 training images and 1000 testing images to `ImageNet291/train/1001_face/` and `ImageNet291/test/1001_face/`, respectively.
 
 **Content**
 
