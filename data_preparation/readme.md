@@ -89,10 +89,10 @@ For the images of ImageNet291, we provide the script to build ImageNet291 from t
 * Specify the folder path to [bbox_select_txt](https://drive.google.com/file/d/1PvOaLwm8-mjpCJPesPRyIA4U4SgQkvr5/view?usp=sharing) in [Line 9 of generate_ImageNet291.py](./generate_ImageNet291.py#L9).
 * Specify the folder path to save the images of ImageNet291 in [Line 10 of generate_ImageNet291.py](./generate_ImageNet291.py#L10).
 * Specify the file path to [ImageNet_To_ImageNet291.txt](https://drive.google.com/file/d/10nvdJigeKn5mA5rsPdWLu9g8uKJe0d_p/view?usp=sharing) in [Line 11 of generate_ImageNet291.py](./generate_ImageNet291.py#L11). Run:
-
 ```python
 python generate_ImageNet291.py
 ```
+* Download [CelebA-HQ](https://github.com/switchablenorms/CelebAMask-HQ) and put the 29000 training images and 1000 testing images to `./ImageNet291/train/1001_face/` and `./ImageNet291/test/1001_face/`, respectively.
 
 **Content**
 
