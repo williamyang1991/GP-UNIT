@@ -6,6 +6,7 @@ import cv2
 import torch
 from torch.utils import data
 from torch.nn import functional as F
+from torch.autograd import Function
 import random
 import math
     
@@ -57,4 +58,26 @@ def r1_reg(d_out, x_in):
     grad_dout2 = grad_dout.pow(2)
     assert(grad_dout2.size() == x_in.size())
     reg = 0.5 * grad_dout2.view(batch_size, -1).sum(1).mean(0)
-    return reg        
+    return reg     
+
+def moving_average(model, model_test, beta=0.999):
+    for param, param_test in zip(model.parameters(), model_test.parameters()):
+        param_test.data = torch.lerp(param.data, param_test.data, beta)
+        
+# tensors[NnetD][Nfeatures]2B*C*W*H --> tensors[NnetD][Nfeatures]B*C*W*H, tensors[NnetD][Nfeatures]B*C*W*H
+# Take the prediction of fake and real images from the combined batch
+def divide_pred(pred):
+    # the prediction contains the intermediate outputs of multiscale GAN,
+    # so it's usually a list
+    if type(pred) == list:
+        fake = []
+        real = []
+        for p in pred:
+            fake.append([tensor[:tensor.size(0) // 2] for tensor in p])
+            real.append([tensor[tensor.size(0) // 2:] for tensor in p])
+    else:
+        fake = pred[:pred.size(0) // 2]
+        real = pred[pred.size(0) // 2:]
+
+    return fake, real
+
