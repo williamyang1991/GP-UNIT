@@ -138,7 +138,7 @@ Download the supporting models to the `./checkpoint/` folder:
 | [content_encoder.pt](https://drive.google.com/file/d/1I7_IMMheihcIR57vInof5g6R0j8wEonx/view?usp=sharing) | Our pretrained content encoder which distills BigGAN prior from the [synImageNet291](https://drive.google.com/file/d/1amMu_IU_W0ELGq7x2ixAMk5ZJlBUNCqL/view?usp=sharing) dataset. |
 | [model_ir_se50.pth](https://drive.google.com/file/d/1KW7bjndL3QG3sxBbZxreGHigcCCpsDgn/view?usp=sharing) | Pretrained IR-SE50 model taken from [TreB1eN](https://github.com/TreB1eN/InsightFace_Pytorch) for ID loss. |
 
-<!--
+
 ### Train Image-to-Image Transaltion Network
 ```python
 python train.py --task TASK --batch BATCH_SIZE --iter ITERATIONS \
@@ -147,20 +147,21 @@ python train.py --task TASK --batch BATCH_SIZE --iter ITERATIONS \
 ```
 where `SPATH1`~`SPATHS` are paths to `S` folders containing images from the source domain (*e.g.*, `S` kinds of ImageNet birds),
 `SNUMi` is the number of images in `SPATHi` used for training. 
-`TPATHi`, `TSNUMi` are similarily defined but for the target domain. 
-By default, `BATCH_SIZE=16` and `ITERATIONS=75,000`.
+`TPATHi`, `TNUMi` are similarily defined but for the target domain. 
+By default, `BATCH_SIZE=16` and `ITERATIONS=75000`.
 If `--source_num`/`--target_num` is not specified, all images in the folders are used.
 
-The trained models are saved in `./checkpoint/TASK-ITERATIONS.pt`. Intermediate results are saved in `./log/TASK/`.
+The trained model is saved as `./checkpoint/TASK-ITERATIONS.pt`. Intermediate results are saved in `./log/TASK/`.
 
 This training does not necessarily lead to the optimal results, which can be further customized with additional command line options:
 - `--style_layer` (default: 4): discriminator layer to compute the feature matching loss. We found setting `style_layer=5` gives better performance on human faces.
 - `--use_allskip` (default: False): whether using dynamic skip connections to compute the reconstruction loss. For tasks involving close domains like gender translation, season transfer and face stylization, using `use_allskip` gives better results.
-- `--use_idloss` (default: False): whether using the identity loss. For Cat→Face and Face→MetFace tasks, we use this loss.
+- `--use_idloss` (default: False): whether using the identity loss. For Cat/Dog→Face and Face→MetFace tasks, we use this loss.
 - `--not_flip_style` (default: False): whether not randomly flipping the style image when extracting the style feature. Random flipping prevents the network to learn  position information from the style image. 
-- `--mitigate_style_bias`(default: False): whether resampling style features when training the sampling network. For imbalanced dataset that has minor groups, we will oversamping those style features that are far from the mean style feature of the whole dataset. This leads to more diversified latent-guided translation at the cost of image quality. We set `mitigate_style_bias=True` on CelebA-HQ and AFHQ-related tasks.
+- `--mitigate_style_bias`(default: False): whether resampling style features when training the sampling network. For imbalanced dataset that has minor groups, `mitigate_style_bias` oversamples those style features that are far from the mean style feature of the whole dataset. This leads to more diversified latent-guided translation at the cost of  slight image quality degradation. We use it on CelebA-HQ and AFHQ-related tasks.
 
-Here are some examples:
+Here are some examples:  
+(Parts of our tasks require the ImageNet291 dataset. Please refer to [data preparation](./data_preparation))
 
 **Malet→Female**
 >python train.py --task male2female --source_paths ./data/celeba_hq/train/male
@@ -183,6 +184,8 @@ Here are some examples:
 >                 ./data/ImageNet291/train/511_vehicle/ ./data/ImageNet291/train/627_vehicle/
 >                 ./data/ImageNet291/train/656_vehicle/ --target_num 600 600 600 600 
 
+
+
 ### Train Content Encoder of Prior Distillation
 
 We provide our pretrained model [content_encoder.pt](https://drive.google.com/file/d/1I7_IMMheihcIR57vInof5g6R0j8wEonx/view?usp=sharing) at [Google Drive](https://drive.google.com/drive/folders/1GMGCPt1xfh0Zs82lfkQLifMZR27yANTI?usp=sharing) or [Baidu Cloud](https://pan.baidu.com/s/1GlCnwd_0EDHNTsQrvM0xhA?pwd=cvpr) (access code: cvpr). This model is obtained by:
@@ -192,7 +195,7 @@ We provide our pretrained model [content_encoder.pt](https://drive.google.com/fi
                               --paired_mask_root ./data/synImageNet291_mask/train/
 
 The training requires ImageNet291 and synImageNet291 datasets. Please refer to [data preparation](./data_preparation).
--->
+
 
 ## Results
 
