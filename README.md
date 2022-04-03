@@ -14,11 +14,8 @@ In CVPR 2022.<br>
 
 ## Updates
 
+- [04/2022] Code and dataset are released.
 - [03/2022] This website is created.
-
-## Code
-
-- We are cleaning our code. Coming soon. 
 
 ## Installation
 **Clone this repo:**
@@ -40,8 +37,7 @@ conda env create -f ./environment/gpunit_env.yaml
 ```
 We use CUDA 10.1 so it will install PyTorch 1.7.0 (corresponding to [Line 16](./environment/gpunit_env.yaml#L16), [Line 113](./environment/gpunit_env.yaml#L113), [Line 120](./environment/gpunit_env.yaml#L120), [Line 121](./environment/gpunit_env.yaml#L121) of `gpunit_env.yaml`). Please install PyTorch that matches your own CUDA version following [https://pytorch.org/](https://pytorch.org/).
 
-
-
+<br/>
 
 ## (1) Dataset Preparation
 
@@ -56,6 +52,8 @@ Bird, dog and car datasets can be built from ImageNet with our provided [script]
 | Bird←→Dog | 4 classes of birds and 4 classes of dogs in ImageNet291. Please refer to [dataset preparation](./data_preparation#2-imagenet291) for building ImageNet291 from [ImageNet](https://image-net.org/download.php) |
 | Bird←→Car | 4 classes of birds and 4 classes of cars in ImageNet291. Please refer to [dataset preparation](./data_preparation#2-imagenet291) for building ImageNet291 from [ImageNet](https://image-net.org/download.php) |
 | Face→MetFace |  [CelebA-HQ](https://github.com/switchablenorms/CelebAMask-HQ) and [MetFaces](https://github.com/NVlabs/metfaces-dataset) |
+
+<br/>
 
 ## (2) Inference for Latent-Guided and Exemplar-Guided Translation
 
@@ -128,6 +126,7 @@ The overview image is as follows:
 
 <img src="./output/translation_flickr_cat_000418_to_flickr_wild_001112_overview.jpg" width="60%">
 
+<br/>
 
 ## (3) Training GP-UNIT
 
@@ -145,7 +144,7 @@ python train.py --task TASK --batch BATCH_SIZE --iter ITERATIONS \
                 --source_paths SPATH1 SPATH2 ... SPATHS --source_num SNUM1 SNUM2 ... SNUMS \
                 --target_paths TPATH1 TPATH2 ... TPATHT --target_num TNUM1 TNUM2 ... TNUMT
 ```
-where `SPATH1`~`SPATHS` are paths to `S` folders containing images from the source domain (*e.g.*, `S` kinds of ImageNet birds),
+where `SPATH1`~`SPATHS` are paths to `S` folders containing images from the source domain (*e.g.*, `S` classes of ImageNet birds),
 `SNUMi` is the number of images in `SPATHi` used for training. 
 `TPATHi`, `TNUMi` are similarily defined but for the target domain. 
 By default, `BATCH_SIZE=16` and `ITERATIONS=75000`.
@@ -163,7 +162,7 @@ This training does not necessarily lead to the optimal results, which can be fur
 Here are some examples:  
 (Parts of our tasks require the ImageNet291 dataset. Please refer to [data preparation](./data_preparation))
 
-**Malet→Female**
+**Male→Female**
 >python train.py --task male2female --source_paths ./data/celeba_hq/train/male
                  --target_paths ./data/celeba_hq/train/female
                  --style_layer 5 --mitigate_style_bias --use_allskip --not_flip_style
@@ -176,7 +175,7 @@ Here are some examples:
                  --target_paths ./data/ImageNet291/train/1001_face/ 
                  --style_layer 5 --mitigate_style_bias --not_flip_style --use_idloss
 
-**Bird→Car** (translating 4 kinds of birds to 4 kinds of cars)
+**Bird→Car** (translating 4 classes of birds to 4 classes of cars)
 > python train.py --task bird2car --source_paths ./data/ImageNet291/train/10_bird/ 
 >                 ./data/ImageNet291/train/11_bird/ ./data/ImageNet291/train/12_bird/ 
 >                 ./data/ImageNet291/train/13_bird/ --source_num 600 600 600 600
@@ -196,6 +195,7 @@ We provide our pretrained model [content_encoder.pt](https://drive.google.com/fi
 
 The training requires ImageNet291 and synImageNet291 datasets. Please refer to [data preparation](./data_preparation).
 
+<br/>
 
 ## Results
 
@@ -232,4 +232,4 @@ If you find this work useful for your research, please consider citing our paper
 
 ## Acknowledgments
 
-The code is developed based on [StarGAN v2](https://github.com/clovaai/stargan-v2) and [Imaginaire](https://github.com/nvlabs/imaginaire).
+The code is developed based on [StarGAN v2](https://github.com/clovaai/stargan-v2), [SPADE](https://github.com/NVlabs/SPADE) and [Imaginaire](https://github.com/nvlabs/imaginaire).
