@@ -38,7 +38,7 @@ We recommend running this repository using [Anaconda](https://docs.anaconda.com/
 ```bash
 conda env create -f ./environment/gpunit_env.yaml
 ```
-We use CUDA 10.1 so it will install PyTorch 1.7.0 (corresponding to [Line 16](./environment/gpunit_env.yaml#L16),[Line 113](./environment/gpunit_env.yaml#L113), [Line 120](./environment/gpunit_env.yaml#L120), [Line 121](./environment/gpunit_env.yaml#L121) of `gpunit_env.yaml`). Please install PyTorch that matches your own CUDA version following [https://pytorch.org/](https://pytorch.org/).
+We use CUDA 10.1 so it will install PyTorch 1.7.0 (corresponding to [Line 16](./environment/gpunit_env.yaml#L16), [Line 113](./environment/gpunit_env.yaml#L113), [Line 120](./environment/gpunit_env.yaml#L120), [Line 121](./environment/gpunit_env.yaml#L121) of `gpunit_env.yaml`). Please install PyTorch that matches your own CUDA version following [https://pytorch.org/](https://pytorch.org/).
 
 
 
