@@ -169,16 +169,26 @@ Here are some examples:
 
 **Cat→Face**
 >python train.py --task cat2face --source_paths ./data/afhq/images512x512/train/cat --source_num 4000
-                 --target_paths ./data/imagenet/unpaired/train/1001_face/ 
+                 --target_paths ./data/ImageNet291/train/1001_face/ 
                  --style_layer 5 --mitigate_style_bias --not_flip_style --use_idloss
 
 **Bird→Car** (translating 4 kinds of birds to 4 kinds of cars)
-> python train.py --task bird2car --source_paths ./data/ImageNet291/unpaired/train/10_bird/ 
->                 ./data/ImageNet291/unpaired/train/11_bird/ ./data/ImageNet291/unpaired/train/12_bird/ 
->                 ./data/ImageNet291/unpaired/train/13_bird/ --source_num 600 600 600 600
->                 --target_paths ./data/ImageNet291/unpaired/train/436_vehicle/
->                 ./data/ImageNet291/unpaired/train/511_vehicle/ ./data/ImageNet291/unpaired/train/627_vehicle/
->                 ./data/ImageNet291/unpaired/train/656_vehicle/ --target_num 600 600 600 600 
+> python train.py --task bird2car --source_paths ./data/ImageNet291/train/10_bird/ 
+>                 ./data/ImageNet291/train/11_bird/ ./data/ImageNet291/train/12_bird/ 
+>                 ./data/ImageNet291/train/13_bird/ --source_num 600 600 600 600
+>                 --target_paths ./data/ImageNet291/train/436_vehicle/
+>                 ./data/ImageNet291/train/511_vehicle/ ./data/ImageNet291/train/627_vehicle/
+>                 ./data/ImageNet291/train/656_vehicle/ --target_num 600 600 600 600 
+
+### Train Content Encoder of Prior Distillation
+
+We provide our pretrained model [content_encoder.pt](https://drive.google.com/file/d/1I7_IMMheihcIR57vInof5g6R0j8wEonx/view?usp=sharing) at [Google Drive](https://drive.google.com/drive/folders/1GMGCPt1xfh0Zs82lfkQLifMZR27yANTI?usp=sharing) or [Baidu Cloud](https://pan.baidu.com/s/1GlCnwd_0EDHNTsQrvM0xhA?pwd=cvpr) (access code: cvpr). This model is obtained by:
+> python prior_distillation.py --unpaired_data_root ./data/ImageNet291/train/ 
+                              --paired_data_root ./data/synImageNet291/train/ 
+                              --unpaired_mask_root ./data/ImageNet291_mask/train/ 
+                              --paired_mask_root ./data/synImageNet291_mask/train/
+
+The training requires ImageNet291 and synImageNet291 datasets. Please refer to [data preparation](./data_preparation).
 -->
 
 ## Results
