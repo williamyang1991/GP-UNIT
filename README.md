@@ -20,6 +20,26 @@ In CVPR 2022.<br>
 
 - We are cleaning our code. Coming soon. 
 
+## Installation
+**Clone this repo:**
+```bash
+git clone https://github.com/williamyang1991/GP-UNIT.git
+cd GP-UNIT
+```
+**Dependencies:**
+
+We have tested on:
+- CUDA 10.1
+- PyTorch 1.7.0
+- Pillow 8.0.1; Matplotlib 3.3.3; opencv-python 4.4.0; Faiss 1.7.0; tqdm 4.54.0
+<!--
+All dependencies for defining the environment are provided in `environment/gpunit_env.yaml`.
+We recommend running this repository using [Anaconda](https://docs.anaconda.com/anaconda/install/):
+```bash
+conda env create -f ./environment/gpunit_env.yaml
+```
+We use CUDA 10.1 so it will install PyTorch 1.7.0. Please install PyTorch that matches your own CUDA version following [https://pytorch.org/](https://pytorch.org/).
+-->
 ## (1) Dataset Preparation
 
 Human face dataset, animal face dataset and aristic human face dataset can be downloaded from their official pages.
@@ -81,6 +101,8 @@ An corresponding overview image `translation_flickr_dog_000572_overview.jpg` is 
 
 <img src="./output/translation_flickr_dog_000572_overview.jpg">
 
+**Evaluation Metrics**: We use the [code of StarGANv2](https://github.com/clovaai/stargan-v2/blob/master/metrics/eval.py#L26) to calculate FID and Diversity with LPIPS in our paper.
+
 ### Exemplar-Guided Translation
 Translate a content image to the target domain in the style of a style image by additionally specifying `--style`:
 ```python
@@ -102,6 +124,34 @@ Another example of Cat→Wild, run:
 The overview image is as follows: 
 
 <img src="./output/translation_flickr_cat_000418_to_flickr_wild_001112_overview.jpg" width="60%">
+
+
+## (3) Training GP-UNIT
+
+Download the supporting models to the `./checkpoint/` folder:
+
+| Model | Description |
+| :--- | :--- |
+| [content_encoder.pt](https://drive.google.com/file/d/1I7_IMMheihcIR57vInof5g6R0j8wEonx/view?usp=sharing) | Our pretrained content encoder which distills BigGAN prior from the [synImageNet291](https://drive.google.com/file/d/1amMu_IU_W0ELGq7x2ixAMk5ZJlBUNCqL/view?usp=sharing) dataset. |
+| [model_ir_se50.pth](https://drive.google.com/file/d/1KW7bjndL3QG3sxBbZxreGHigcCCpsDgn/view?usp=sharing) | Pretrained IR-SE50 model taken from [TreB1eN](https://github.com/TreB1eN/InsightFace_Pytorch) for ID loss. |
+<!--
+### Train Image-to-Image Transaltion Network
+```python
+python train.py --task TASK --batch BATCH_SIZE --iter ITERATIONS \
+                --source_paths SPATH1 SPATH2 ... SPATHS --source_num SNUM1 SNUM2 ... SNUMS \
+                --target_paths TPATH1 TPATH2 ... TPATHT --target_num TNUM1 TNUM2 ... TNUMT
+```
+where `SPATH1`~`SPATHS` are paths to `S` folders containing images from the source domain (*e.g.*, `S` kinds of ImageNet birds),
+`SNUMi` is the number of images in `SPATHi` used for training. 
+`TPATHi`, `TSNUMi` are similarily defined but for the target domain. 
+
+This training does not necessarily lead to the optimal results, which can be further customized with additional command line options:
+- `--style_layer` (default: 4): discriminator layer to compute the feature matching loss. We found setting `style_layer=5` gives better performance on the Cat→Face task.
+- `--use_allskip` (default: False): whether using dynamic skip connections to compute the reconstruction loss. For tasks involving close domains like gender translation, season transfer and face stylization, using `use_allskip` gives better results.
+- `--use_idloss` (default: False): whether using the identity loss. For Cat→Face and Face→MetFace tasks, we use this loss.
+- `--not_flip_style` (default: False): whether not randomly flipping the style image when extracting the style feature. Random flipping prevents the network to learn  position information from the style image. 
+- `--mitigate_style_bias`(default: False): whether resampling style features when training the sampling network. For imbalanced dataset that has minor groups, we will oversamping those style features that are far from the mean style feature of the whole dataset. This leads to more diversified latent-guided translation at the cost of image quality. We set `mitigate_style_bias=True` on CelebA-HQ and AFHQ-related tasks.
+-->
 
 ## Results
 
