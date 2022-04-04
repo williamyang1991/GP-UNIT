@@ -1,4 +1,4 @@
-For easy training, the dataset is suggested to arranged following the folder structures:
+For easy training, the dataset is suggested to be arranged following the folder structures:
 
 ```
 DatasetName

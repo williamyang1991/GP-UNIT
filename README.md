@@ -59,8 +59,8 @@ Bird, dog and car datasets can be built from ImageNet with our provided [script]
 
 ### Inference Notebook 
 <a href="http://colab.research.google.com/github/williamyang1991/GP-UNIT/blob/master/notebooks/inference_playground.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" height=22.5></a>  
-To help users get started, we provide a Jupyter notebook found in `./notebooks/inference_playground.ipynb` that allows one to visualize the performance of GP-UNIT.
-The notebook will download the necessary pretrained models and run inference on the images found in `./data/`.
+To help users get started, we provide a Jupyter notebook at `./notebooks/inference_playground.ipynb` that allows one to visualize the performance of GP-UNIT.
+The notebook will download the necessary pretrained models and run inference on the images in `./data/`.
 
 ### Pretrained Models
 
@@ -153,7 +153,7 @@ If `--source_num`/`--target_num` is not specified, all images in the folders are
 The trained model is saved as `./checkpoint/TASK-ITERATIONS.pt`. Intermediate results are saved in `./log/TASK/`.
 
 This training does not necessarily lead to the optimal results, which can be further customized with additional command line options:
-- `--style_layer` (default: 4): discriminator layer to compute the feature matching loss. We found setting `style_layer=5` gives better performance on human faces.
+- `--style_layer` (default: 4): the discriminator layer to compute the feature matching loss. We found setting `style_layer=5` gives better performance on human faces.
 - `--use_allskip` (default: False): whether using dynamic skip connections to compute the reconstruction loss. For tasks involving close domains like gender translation, season transfer and face stylization, using `use_allskip` gives better results.
 - `--use_idloss` (default: False): whether using the identity loss. For Cat/Dog→Face and Face→MetFace tasks, we use this loss.
 - `--not_flip_style` (default: False): whether not randomly flipping the style image when extracting the style feature. Random flipping prevents the network to learn  position information from the style image. 
