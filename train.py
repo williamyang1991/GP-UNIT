@@ -132,7 +132,7 @@ def train(args, dataloader, target_dataloader, netG, netD, optimizer_G, optimize
         # reconstruction
         ybar, _ = netG(cfeat_y, y_, useskip=args.use_allskip)
 
-        fake_and_real = torch.cat([yhat, ybar], dim=0)
+        fake_and_real = torch.cat([yhat, y], dim=0)
         preds, sfeats = netD(fake_and_real, args.style_layer)
         fake_pred, real_pred = divide_pred(preds)
         Lgadv = adv_loss(fake_pred, 1)
