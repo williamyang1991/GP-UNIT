@@ -44,11 +44,11 @@ class Predictor(BasePredictor):
             description="Choose style type.",
         ),
         content: Path = Input(
-            description="Input content image, it will be resized to 256.",
+            description="Input content image, it will be resized to 256",
         ),
         style: Path = Input(
             default=None,
-            description="Input style image, it will be resized to 256.",
+            description="Input style image, it will be resized to 256",
         ),
     ) -> Path:
 
