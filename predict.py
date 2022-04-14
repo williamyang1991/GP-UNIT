@@ -46,7 +46,6 @@ class Predictor(BasePredictor):
             description="Input content image, it will be resized to 256.",
         ),
         style: Path = Input(
-            default="None",
             description="Input style image, it will be resized to 256.",
         ),
     ) -> Path:
@@ -71,10 +70,9 @@ class Predictor(BasePredictor):
         Ix = F.interpolate(
             load_image(str(content)), size=256, mode="bilinear", align_corners=True
         )
-        if str(style) != "None":
-            Iy = F.interpolate(
-                load_image(str(style)), size=256, mode="bilinear", align_corners=True
-            )
+        Iy = F.interpolate(
+            load_image(str(style)), size=256, mode="bilinear", align_corners=True
+        )
 
         seed = 233
         torch.manual_seed(seed)
@@ -82,11 +80,7 @@ class Predictor(BasePredictor):
             content_feature = self.netEC(Ix.to(self.device), get_feature=True)
             
         with torch.no_grad():
-            if str(style) != "None":
-                I_yhat, _ = self.netG(content_feature, Iy.to(self.device))
-            else:
-                style_features = self.sampler.icp.netT(torch.randn(1, 128).to(self.device))
-                I_yhat, _ = self.netG(content_feature, style_features, useZ=True)
+            I_yhat, _ = self.netG(content_feature, Iy.to(self.device))
 
         out_path = Path(tempfile.mkdtemp()) / "output.png"
         save_image(I_yhat[0].cpu(), str(out_path))
