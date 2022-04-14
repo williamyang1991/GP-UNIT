@@ -1,0 +1,19 @@
+build:
+  cuda: "10.1"
+  gpu: true
+  python_version: "3.8"
+  system_packages:
+    - "libgl1-mesa-glx"
+    - "libglib2.0-0"
+  python_packages:
+    - "torch==1.7.0"
+    - "torchvision==0.8.1"
+    - "numpy==1.21.1"
+    - "ipython==7.21.0"
+    - "matplotlib==3.3.3"
+    - "Pillow==8.0.1"
+    - "opencv-python==4.5.5.64"
+    - "faiss-cpu==1.7.2"
+    - "tqdm==4.54.0"
+
+predict: "predict.py:Predictor"
