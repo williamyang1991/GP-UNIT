@@ -63,6 +63,10 @@ Bird, dog and car datasets can be built from ImageNet with our provided [script]
 To help users get started, we provide a Jupyter notebook at `./notebooks/inference_playground.ipynb` that allows one to visualize the performance of GP-UNIT.
 The notebook will download the necessary pretrained models and run inference on the images in `./data/`.
 
+
+### Web Demo 
+Try Replicate web demo here [![Replicate](https://replicate.com/williamyang1991/gp-unit/badge)](https://replicate.com/williamyang1991/gp-unit)
+
 ### Pretrained Models
 
 Pretrained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1GMGCPt1xfh0Zs82lfkQLifMZR27yANTI?usp=sharing) or [Baidu Cloud](https://pan.baidu.com/s/1GlCnwd_0EDHNTsQrvM0xhA?pwd=cvpr) (access code: cvpr):
