@@ -9,7 +9,7 @@ from cog import BasePredictor, Path, Input
 
 from model.generator import Generator
 from model.content_encoder import ContentEncoder
-from model.sampler import ICPTrainer
+#from model.sampler import ICPTrainer
 
 
 TASKS = [
@@ -33,7 +33,7 @@ class Predictor(BasePredictor):
         self.netEC.eval()
         self.netG = Generator()
         self.netG.eval()
-        self.sampler = ICPTrainer(np.empty([0, 256]), 128)
+        #self.sampler = ICPTrainer(np.empty([0, 256]), 128)
 
     def predict(
         self,
@@ -60,11 +60,11 @@ class Predictor(BasePredictor):
             f"checkpoint/{task}.pt", map_location=lambda storage, loc: storage
         )
         self.netG.load_state_dict(ckpt["g_ema"])
-        self.sampler.icp.netT.load_state_dict(ckpt["sampler"])
+        #self.sampler.icp.netT.load_state_dict(ckpt["sampler"])
 
         self.netEC = self.netEC.to(self.device)
         self.netG = self.netG.to(self.device)
-        self.sampler.icp.netT = self.sampler.icp.netT.to(self.device)
+        #self.sampler.icp.netT = self.sampler.icp.netT.to(self.device)
         print("Model successfully loaded!")
 
         Ix = F.interpolate(
@@ -74,8 +74,8 @@ class Predictor(BasePredictor):
             load_image(str(style)), size=256, mode="bilinear", align_corners=True
         )
 
-        seed = 233
-        torch.manual_seed(seed)
+        #seed = 233
+        #torch.manual_seed(seed)
         with torch.no_grad():
             content_feature = self.netEC(Ix.to(self.device), get_feature=True)
             
