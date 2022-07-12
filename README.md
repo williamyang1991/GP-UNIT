@@ -14,7 +14,7 @@ In CVPR 2022.<br>
 
 ## Updates
 
-- [03/2022] Paper and supplementary video are released.
+- [04/2022] Paper and supplementary video are released.
 - [04/2022] Code and dataset are released.
 - [03/2022] This website is created.
 
