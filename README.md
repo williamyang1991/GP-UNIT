@@ -14,6 +14,7 @@ In CVPR 2022.<br>
 
 ## Updates
 
+- [07/2022] Source code license is updated.
 - [04/2022] Paper and supplementary video are released.
 - [04/2022] Code and dataset are released.
 - [03/2022] This website is created.
